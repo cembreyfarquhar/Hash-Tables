@@ -57,8 +57,8 @@ def hash_table_remove(hash_table, key):
 # Should return None if the key is not found.
 # '''
 def hash_table_retrieve(hash_table, key):
-    pass
-
+    index = hash(key, hash_table.capacity)
+    return hash_table.storage[index]
 
 def Testing():
     ht = BasicHashTable(16)
@@ -68,7 +68,7 @@ def Testing():
     hash_table_remove(ht, "line")
     print(ht.storage)
 
-    if hash_table_retrieve(ht, "line") is None:
+    if hash_table_retrieve(ht, "line") == None:
         print("...gone tomorrow (success!)")
     else:
         print("ERROR:  STILL HERE")
