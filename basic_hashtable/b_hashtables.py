@@ -58,7 +58,10 @@ def hash_table_remove(hash_table, key):
 # '''
 def hash_table_retrieve(hash_table, key):
     index = hash(key, hash_table.capacity)
-    return hash_table.storage[index]
+    if hash_table.storage[index] is None:
+        return None
+    
+    return hash_table.storage[index].value
 
 def Testing():
     ht = BasicHashTable(16)
